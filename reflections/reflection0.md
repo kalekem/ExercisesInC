@@ -1,1 +1,15 @@
-reflection 0
+
+
+Each one of us had interests on pursuing projects along the areas of Network programmings, clients and servers,Operating Systems and Graphics Programming. At least each one of us had strong area of interest that they would want to explore more but in general we all had  similar broad interests on these three areas. We also noted that most of our group members had basic to no experience in C programming and therefore our consensus was to choose a project that we believe will be exciting and fun to work one while at the same time applying the knowledge of C along the process in a way that will ensure we "milk" good understanding out of C as a programming language!
+
+We decided Amy Wu would be a scrum master. She demonstrated to us that she will be able to organize her work, manage the time well and ensure that as a team we are doing our best to make the project successful. She also has prior exposure to trello board and therefore we decided that she will be our master! We will however, be dividing up roles and responsibilities along the way so that everyone in the team contributes to the project progress and more importantly learn and be effective in team collaboration. 
+
+To get things going, we decided that everyone in the group researches more on the project ideas although we've so far narrowed down to something to do with openGL and terminal. We however want to see if there is any other idea that may be exciting for a project before we dive in and get things rolling. We also decided that we will all be experimenting with openGL library so that we get a hang of what openGl really does."Hello world" in openGl was the best way to start, we decided.  We also decided that we will be making final decisions for what project to pick on Thursday 26th then over the weekend we begin writing the project proposals and finalize it for submisson on the 30th. 
+
+For sprint backlog, under SPrint 1- Proposal, after extensive discussions on what possible projects we could work on, we included in the tasks those ideas that we thought weighed more than the others on the areas of our project interests. For example, we encouraged everyone in the group to read the chapter in the Head First C that discusses about terminals, because our project may be creating a terminal. We also encouraged everyone to explore on openGL so that should we decide on an openGL project, then everyone should at least have a basic idea and understanding of openGL libary. And just to make sure that we exhaust out all the possible project ideas, we included in the backlog a task that everyone should research more on what other possible projects we could work on. And finally we were able to pick our scrum master- the process was fair, transparent and peaceful!!
+
+Personally I haven't had experience working with Trello but so far it doesn't look bad. One thing I like about is the fact that it can highlight when the due date for the exercise will be. I like this feature because it can allow you to plan your time well and avoid procrastination. It sends an "interrupt" so that you don't watch netflix when a project is due! I'm not sure if it will be great tool for members to communicate though, but as I said this is my first time using it so I'll give it sometime before I openly criticize it. 
+
+
+
+

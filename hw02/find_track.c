@@ -40,6 +40,7 @@ void find_track(char search_for[])
 // Finds all tracks that match the given pattern.
 //Returns 0 if there is a match
 // Prints track number and title.
+
 void find_track_regex(char pattern[]) {
 
     int i;

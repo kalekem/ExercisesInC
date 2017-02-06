@@ -11,7 +11,7 @@ For sprint retrospective, we did well as a team in discussing what project idea 
 
 **2. Links to Head First C exercises**
 
-I read chapters   1-4 HFC but only worked on exercises from chapter 1 and 2. 
+I read chapters 1-4 of HFC but only worked on exercises from chapter 1 and 2. 
 
 Links to HFC solutions: 
 

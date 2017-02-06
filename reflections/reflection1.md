@@ -35,10 +35,11 @@ Links to ThinkOS reading questions:
 
 This question draws from chapter two of thinkOS textbook - Processes
 
+
 **Q**. What is multitasking in operating systems? 
 
 
-**A**.Multitasking is the ability of an operating system to allow a user to perform more than one task at a time. 
+**A**. Multitasking is the ability of an operating system to allow a user to perform more than one task at a time. 
 This is achieved as the OS can issue an interrupt to a running process at any time, saves its hardware state, and then
 resumes the process later on. However, the user will have an illusion that the program is running continuosly on a dedicated 
 processor. They won't need to think or worry about the interruptions that happen. 

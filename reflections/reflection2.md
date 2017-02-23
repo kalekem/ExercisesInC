@@ -30,5 +30,5 @@ Chapter 4: https://github.com/kalekem/ExercisesInC/wiki/Chapter-4:-Files-and-Fil
 **D.** Pointer to the first data block
 
 
-*Answer: B *
+Answer: **B**
 

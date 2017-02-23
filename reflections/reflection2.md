@@ -20,6 +20,15 @@ Chapter 4: https://github.com/kalekem/ExercisesInC/wiki/Chapter-4:-Files-and-Fil
 
 **Exam question(s) and solution**
 **Q. Which of the following is not included in an inode in Linux?**
-**A.** File Owner **B.** File name **C.** File Modification date **D.** Pointer to the first data block
+
+**A.** File Owner 
+
+**B.** File name
+
+**C.** File Modification date 
+
+**D.** Pointer to the first data block
+
+
 *Answer: B *
 

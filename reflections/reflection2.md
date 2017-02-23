@@ -15,7 +15,9 @@ https://github.com/kalekem/ExercisesInC/tree/master/exercises/ex04
 **ThinkOS reading question answers**
 
 I completed the readings for chapters 3 and 4 of ThinkOS. Here are the links
+
 Chapter 3: https://github.com/kalekem/ExercisesInC/wiki/Chapter-3:-Virtual-Memory
+
 Chapter 4: https://github.com/kalekem/ExercisesInC/wiki/Chapter-4:-Files-and-File-Systems
 
 **Exam question(s) and solution**

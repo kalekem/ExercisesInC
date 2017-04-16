@@ -1,3 +1,9 @@
+/*
+Name: Cleophas Kalekem
+Date: 4/16/2017
+
+*/
+
 /*     This file contains an example program from The Little Book of
        Semaphores, available from Green Tea Press, greenteapress.com
 

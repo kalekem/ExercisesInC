@@ -256,3 +256,15 @@ int main ()
     return 0;
 }
 
+/*
+Times:
+
+counter_mutex: 3.608s
+counter: 1.415s
+
+This means that synchronization is about 2.5s slower than non-synchronized code
+
+Since the semaphores are of small int values, there is minimal overhead
+*/
+
+

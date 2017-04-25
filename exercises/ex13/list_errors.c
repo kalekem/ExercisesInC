@@ -162,7 +162,7 @@ void free_nodes(Node *head) {
         free(free_this_node);
     }
 }
-//frees nodes in the mysterious data structures
+//frees anything else that hasn't been freed
 void free_something(Node *something) {
     free_nodes(something);
 }

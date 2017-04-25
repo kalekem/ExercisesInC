@@ -163,7 +163,7 @@ void free_nodes(Node *head) {
     }
 }
 //frees anything else that hasn't been freed
-void free_something(Node *something) {
+void free_stuff(Node *something) {
     free_nodes(something);
 }
 
@@ -198,7 +198,7 @@ int main() {
     free_nodes(empty);
 
     Node *something = make_something();
-    free_something(something);
+    free_stuff(something);
 
     return 0;
 }

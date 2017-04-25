@@ -1,3 +1,13 @@
+/*
+Name: Cleophas Kalekem
+Class: Software Systems
+Date: 4/24/2017
+Instructor: Prof. Allen Downey
+
+Modified the program to stop leaking memory
+
+*/
+
 /* Example code for Exercises in C
 
 Copyright 2016 Allen Downey
@@ -9,7 +19,6 @@ http://www.ibm.com/developerworks/linux/tutorials/l-glib/section5.html
 Note: this version leaks memory.
 
 */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <glib.h>
@@ -56,10 +65,11 @@ void accumulator (gpointer key, gpointer value, gpointer user_data)
     pair->freq = * (gint *) value;
 
     g_sequence_insert_sorted (seq, 
-			      (gpointer) pair, 
-			      (GCompareDataFunc) compare_pair,
-			      NULL);
+        (gpointer) pair, 
+        (GCompareDataFunc) compare_pair,
+        NULL);
 }
+
 
 /* Increments the frequency associated with key. */
 void incr (GHashTable* hash, gchar *key)
@@ -67,13 +77,21 @@ void incr (GHashTable* hash, gchar *key)
     gint *val = (gint *) g_hash_table_lookup (hash, key);
 
     if (val == NULL) {
-	gint *val1 = g_new (gint, 1);
-	*val1 = 1;
-	g_hash_table_insert (hash, key, val1);
+        gint *val1 = g_new (gint, 1);
+        *val1 = 1;
+        g_hash_table_insert (hash, key, val1);
     } else {
-	*val += 1;
+
+        *val += 1;
+        g_free(key); //if the key was unused, then it should be freed
     }
 }
+
+//frees memory for the data allocated when removing the entered data in the GHashTable
+void free_data_entry(void *data) {
+    free(data);
+}
+
 
 int main (int argc, char** argv)
 {
@@ -81,33 +99,34 @@ int main (int argc, char** argv)
 
     // open the file
     if (argc > 1) {
-	filename = argv[1];
+        filename = argv[1];
     } else {
-	filename = "emma.txt";
+        filename = "emma.txt";
     }
 
     FILE *fp = g_fopen(filename, "r");
     if (fp == NULL) {
-	perror (filename);
-	exit (-10);
+        perror (filename);
+        exit (-10);
     }
 
     /* string array is a (two-L) NULL terminated array of pointers to
        (one-L) NUL terminated strings */
     gchar **array;
     gchar line[128];
-    GHashTable* hash = g_hash_table_new (g_str_hash, g_str_equal);
+    GHashTable* hash = g_hash_table_new_full (g_str_hash, g_str_equal, free_data_entry, free_data_entry);
     int i;
 
     // read lines from the file and build the hash table
     while (1) {
-	gchar *res = fgets (line, sizeof(line), fp);
-	if (res == NULL) break;
+        gchar *res = fgets (line, sizeof(line), fp);
+        if (res == NULL) break;
 
-	array = g_strsplit(line, " ", 0);
-	for (i=0; array[i] != NULL; i++) {
-	    incr(hash, array[i]);
-	}
+        array = g_strsplit(line, " ", 0);
+        for (i=0; array[i] != NULL; i++) {
+            incr(hash, g_strdup(array[i]));
+        }
+        g_strfreev(array);
     }
     fclose (fp);
 
@@ -115,7 +134,7 @@ int main (int argc, char** argv)
     // g_hash_table_foreach (hash,  (GHFunc) printor, "Word %s freq %d\n");
 
     // iterate the hash table and build the sequence
-    GSequence *seq = g_sequence_new (NULL);
+    GSequence *seq = g_sequence_new (free_data_entry);
     g_hash_table_foreach (hash,  (GHFunc) accumulator, (gpointer) seq);
 
     // iterate the sequence and print the pairs

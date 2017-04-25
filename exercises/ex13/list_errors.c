@@ -1,9 +1,21 @@
+/*
+Name: Cleophas Kalekem
+Class: Software Systems
+Date: 4/24/2017
+Instructor: Prof. Allen Downey
+
+Modified the program to stop leaking memory
+
+*/
+
+
 /* Example code for Exercises in C.
 
 Copyright 2014 Allen Downey
 License: Creative Commons Attribution-ShareAlike 3.0
 
 */
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -41,6 +53,7 @@ int pop(Node **head) {
 
     next_node = (*head)->next;
     retval = (*head)->val;
+    free(*head);
     *head = next_node;
 
     return retval;
@@ -59,20 +72,20 @@ int remove_by_value(Node **head, int val) {
     Node *victim;
 
     if (node == NULL) {
-	return 0;
+    return 0;
     }
 
     if (node->val == val) {
-	pop(head);
-	return 1;
+    pop(head);
+    return 1;
     }
 
     for(; node->next != NULL; node = node->next) {
-	if (node->next->val == val) {
-	    victim = node->next;
-	    node->next = victim->next;
-	    return 1;
-	}
+    if (node->next->val == val) {
+        victim = node->next;
+        node->next = victim->next;
+        return 1;
+    }
     }
     return 0;
 }
@@ -83,19 +96,23 @@ void reverse(Node **head) {
     Node *next, *temp;
 
     if (node == NULL || node->next == NULL) {
-	return;
+    return;
     }
 
     next = node->next;
     node->next = NULL;
 
     while (next != NULL) {
-	temp = next->next;
-	next->next = node;
-	node = next;
-	next = temp;
+    temp = next->next;
+    next->next = node;
+    node = next;
+    next = temp;
     }
     *head = node;
+
+    //free nodes in the memory
+    free(next);
+    free(temp);
 }
 
 // Adds a new element to the list before the indexed element.
@@ -107,14 +124,15 @@ int insert_by_index(Node **head, int val, int index) {
     Node *node = *head;
 
     if (index == 0) {
-	push(head, val);
-	return 0;
+        push(head, val);
+        return 0;
     }
 
     for (i=0; i<index-1; i++) {
-	if (node == NULL) return -1;
-	node = node->next;
+        if (node == NULL) return -1;
+        node = node->next;
     }
+
     if (node == NULL) return -1;
     node->next = make_node(val, node->next);
     return 0;
@@ -132,6 +150,23 @@ Node *make_something() {
 
     return node3;
 }
+
+//frees all nodes in the memory
+void free_nodes(Node *head) {
+    Node *current = head;
+    Node *free_this_node;
+
+    while (current != NULL) {
+        free_this_node = current;
+        current = current->next;
+        free(free_this_node);
+    }
+}
+//frees nodes in the mysterious data structures
+void free_something(Node *something) {
+    free_nodes(something);
+}
+
 
 int main() {
     // make a list of even numbers
@@ -151,6 +186,7 @@ int main() {
 
     printf("test_list\n");
     print_list(test_list);
+    free_nodes(test_list);
 
     // make an empty list
     printf("empty\n");
@@ -159,10 +195,10 @@ int main() {
     // add an element to the empty list
     insert_by_index(&empty, 1, 0);
     print_list(empty);
+    free_nodes(empty);
 
     Node *something = make_something();
-    free(something);
+    free_something(something);
 
     return 0;
 }
- 
